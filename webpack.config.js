@@ -83,6 +83,10 @@ if (isDev) {
   )
 } else {
   config.mode = 'production'
+  config.entry = {
+    app: path.join(__dirname, 'src/index.js'),
+    vendor: ['vue']
+  }
   config.module.rules.push({
     test: /.(styl|stylus)$/,
     use: ExtractPlugin.extract({
@@ -102,6 +106,26 @@ if (isDev) {
   config.plugins.push(
     new ExtractPlugin('styles.[hash:8].css')
   )
+  config.optimization = {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: 'initial',
+          minChunks: 2,
+          maxInitialRequests: 5,
+          minSize: 0
+        },
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial',
+          name: 'vendor',
+          priority: 10,
+          enforce: true
+        }
+      }
+    },
+    runtimeChunk: true
+  }
 }
 
 module.exports = config
