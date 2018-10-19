@@ -53,7 +53,6 @@ const config = {
 if (isDev) {
   config.mode = 'development'
   config.devtool = '#cheap-module-eval-source-map'
-  config.output.filename = '[name[.[chunkhash:8].js'
   config.devServer = {
     port: 8000,
     host: '0.0.0.0',
@@ -87,6 +86,7 @@ if (isDev) {
     app: path.join(__dirname, 'src/index.js'),
     vendor: ['vue']
   }
+  config.output.filename = '[name].[chunkhash:8].js'
   config.module.rules.push({
     test: /.(styl|stylus)$/,
     use: ExtractPlugin.extract({
