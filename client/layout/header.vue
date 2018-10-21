@@ -1,6 +1,8 @@
 <template>
   <header class="main-header">
-    <h1>KTodo</h1>
+    <h1>
+      KTodo  
+    </h1>
   </header>
 </template>
 
