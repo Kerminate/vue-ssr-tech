@@ -27,7 +27,7 @@ export default {
       this.$emit('del', this.todo.id)
     }
   }
- }
+}
 </script>
 
 <style lang='stylus' scoped>

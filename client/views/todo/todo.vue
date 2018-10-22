@@ -66,7 +66,7 @@ export default {
     Item,
     Tabs
   }
- }
+}
 </script>
 
 <style lang='stylus' scoped>

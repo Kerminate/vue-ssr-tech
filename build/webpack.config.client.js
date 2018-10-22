@@ -38,7 +38,7 @@ if (isDev) {
         {
           test: /.(styl|stylus)$/,
           use: [
-            'style-loader',
+            'vue-style-loader',
             'css-loader',
             {
               loader: 'postcss-loader',
@@ -71,7 +71,7 @@ if (isDev) {
         {
           test: /.(styl|stylus)$/,
           use: ExtractPlugin.extract({
-            fallback: 'style-loader',
+            fallback: 'vue-style-loader',
             use: [
               'css-loader',
               {

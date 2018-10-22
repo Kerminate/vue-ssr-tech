@@ -45,7 +45,7 @@ export default {
       this.$emit('clearAllCompleted')
     }
   }
- }
+}
 </script>
 
 <style lang='stylus' scoped>
