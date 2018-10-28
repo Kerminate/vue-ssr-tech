@@ -15,7 +15,9 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, 'template.html')
+  })
 ]
 
 const devServer = {
@@ -23,6 +25,9 @@ const devServer = {
   host: '127.0.0.1',
   overlay: {
     errors: true
+  },
+  historyApiFallback: {
+    index: '/public/index.html'
   },
   open: true, // webpack 启动后自动打开网站
   hot: true
