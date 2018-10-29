@@ -14,13 +14,16 @@
 <script>
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue'
+// import Todo from './views/todo/todo.vue' // Todo 使用动态路由加载
 
 export default {
   components: {
     Header,
-    Footer,
-    Todo
+    Footer
+    // Todo
+  },
+  mounted () {
+    console.log(this.$store)
   }
 }
 </script>

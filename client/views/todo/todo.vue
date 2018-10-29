@@ -28,6 +28,17 @@ import Tabs from './tabs.vue'
 
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before enter', this)
+    next(vm => {
+      console.log('after enter vm.id is ', vm.id)
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo leave enter')
+    next()
+  },
+  props: ['id'],
   data () {
     return {
       todos: [],
