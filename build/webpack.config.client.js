@@ -1,5 +1,4 @@
 const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const ExtractPlugin = require('extract-text-webpack-plugin')
@@ -9,7 +8,6 @@ const baseConfig = require('./webpack.config.base')
 const isDev = process.env.NODE_ENV === 'development'
 
 const defaultPlugins = [
-  new VueLoaderPlugin(),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: isDev ? '"development"' : '"production"'

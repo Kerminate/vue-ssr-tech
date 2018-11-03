@@ -20,7 +20,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-server-renderer": "^2.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
