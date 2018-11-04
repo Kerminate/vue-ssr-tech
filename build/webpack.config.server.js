@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+const ExtractPlugin = require('extract-text-webpack-plugin')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 const baseConfig = require('./webpack.config.base')
 
@@ -10,7 +11,7 @@ const defaultPlugins = [
   new ExtractPlugin('styles.[hash:8].css'),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-    'process.env.NODE_ENV': 'server'
+    'process.env.NODE_ENV': '"server"'
   }),
   new VueServerPlugin()
 ]
