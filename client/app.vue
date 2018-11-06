@@ -19,6 +19,9 @@ import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue' // Todo 使用动态路由加载
 
 export default {
+  metaInfo: {
+    title: 'Kerminate\'s Todo App'
+  },
   components: {
     Header,
     Footer
