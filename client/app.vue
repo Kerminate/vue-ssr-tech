@@ -3,11 +3,11 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}} {{counter}}</p>
-    <router-link to='/app'>app</router-link>
-    <router-link to='/login'>login</router-link>
     <transition name='fade'>
       <router-view />
     </transition>
+    <button @click="notify">click me</button>
+    <!-- <notification content="test notify"></notification> -->
     <Footer></Footer>
   </div>
 </template>
@@ -35,6 +35,14 @@ export default {
       counter: (state) => state.count
     }),
     ...mapGetters(['fullName'])
+  },
+  methods: {
+    notify () {
+      this.$notify({
+        content: 'test $notify',
+        btn: 'close'
+      })
+    }
   }
 }
 </script>

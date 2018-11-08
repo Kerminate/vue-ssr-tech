@@ -4,10 +4,12 @@ import Vuex from 'vuex'
 import App from './app.vue'
 import createRouter from './router'
 import createStore from './store'
+import Notification from './components/notification'
 import './assets/styles/global.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(Notification)
 
 const router = createRouter()
 const store = createStore()
