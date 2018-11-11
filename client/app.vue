@@ -7,7 +7,6 @@
       <router-view />
     </transition>
     <button @click="notify">click me</button>
-    <!-- <notification content="test notify"></notification> -->
     <Footer></Footer>
   </div>
 </template>

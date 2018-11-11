@@ -28,11 +28,11 @@ const config = {
         test: /.jsx$/,
         loader: 'babel-loader'
       },
-      // {
-      //   test: /.js$/,
-      //   loader: 'babel-loader',
-      //   exclude: /node_modules/
-      // },
+      {
+        test: /.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.(gif|jpg|jpeg|svg|png)$/,
         use: [

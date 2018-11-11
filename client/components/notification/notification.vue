@@ -1,16 +1,16 @@
 <template>
-<transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
-  <div
-    class="notification"
-    :style="style"
-    v-show="visible"
-    @mouseenter="clearTimer"
-    @mouseleave="createTimer"
-  >
-    <span class="content">{{content}}</span>
-    <a class="btn" @click="handleClose">{{btn}}</a>
-  </div>
-</transition>
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
+    <div
+      class="notification"
+      :style="style"
+      v-show="visible"
+      @mouseenter="clearTimer"
+      @mouseleave="createTimer"
+    >
+      <span class="content">{{content}}</span>
+      <a class="btn" @click="handleClose">{{btn}}</a>
+    </div>
+  </transition>
 </template>
 
 <script>

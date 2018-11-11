@@ -5,11 +5,13 @@ import App from './app.vue'
 import createRouter from './router'
 import createStore from './store'
 import Notification from './components/notification'
+import Tabs from './components/tabs'
 import './assets/styles/global.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(Notification)
+Vue.use(Tabs)
 
 const router = createRouter()
 const store = createStore()

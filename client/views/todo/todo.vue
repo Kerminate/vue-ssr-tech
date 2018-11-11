@@ -1,5 +1,10 @@
 <template>
   <section class="real-app">
+    <div class="tab-container">
+      <tabs :value="filter" @change="handleChangeTab">
+        <tab :label="tab" :index="tab" v-for="tab  in states" :key="tab" />
+      </tabs>
+    </div>
     <input
       type="text"
       class="add-input"
@@ -13,10 +18,9 @@
       :key="todo.id"
       @del="deleteTodo"
     />
-    <Tabs
+    <Helper
       :filter="filter"
       :todos="todos"
-      @toggle="toggleFilter"
       @clearAllCompleted="clearAllCompleted"
     />
   </section>
@@ -24,28 +28,18 @@
 
 <script>
 import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Helper from './helper.vue'
 
 let id = 0
 export default {
   metaInfo: {
     title: 'The Todo APP'
   },
-  // beforeRouteEnter (to, from, next) {
-  //   console.log('todo before enter', this)
-  //   next(vm => {
-  //     console.log('after enter vm.id is ', vm.id)
-  //   })
-  // },
-  // beforeRouteUpdate (to, from, next) {
-  //   console.log('todo leave enter')
-  //   next()
-  // },
-  // props: ['id'],
   data () {
     return {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      states: ['all', 'active', 'completed']
     }
   },
   computed: {
@@ -69,27 +63,29 @@ export default {
     deleteTodo (id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter (state) {
-      this.filter = state
-    },
     clearAllCompleted () {
       this.todos = this.todos.filter(todo => !todo.completed)
+    },
+    handleChangeTab (value) {
+      this.filter = value
     }
   },
   components: {
     Item,
-    Tabs
+    Helper
   }
 }
 </script>
 
 <style lang='stylus' scoped>
-.real-app {
+.real-app
   width 600px
   margin 0 auto
   box-shadow 0 0 5px #666
-}
-.add-input {
+.tab-container
+  background-color #fff
+  padding 0 15px
+.add-input
   position relative
   margin 0
   width 100%
@@ -108,5 +104,4 @@ export default {
   padding 16px 16px 16px 60px
   border none
   box-shadow inset 0 -2px 1px rgba(0,0,0,0.03)
-}
 </style>
