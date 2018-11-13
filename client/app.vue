@@ -2,7 +2,6 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} {{counter}}</p>
     <transition name='fade'>
       <router-view />
     </transition>
@@ -12,7 +11,6 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue' // Todo 使用动态路由加载
@@ -28,12 +26,6 @@ export default {
   },
   mounted () {
     console.log(this.$store)
-  },
-  computed: {
-    ...mapState({
-      counter: (state) => state.count
-    }),
-    ...mapGetters(['fullName'])
   },
   methods: {
     notify () {

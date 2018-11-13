@@ -1,13 +1,23 @@
 const Koa = require('koa')
-const send = require('koa-send')
 const path = require('path')
+const send = require('koa-send')
+const koaBody = require('koa-body')
+const koaSession = require('koa-session')
+
 const staticRouter = require('./routes/static')
 const apiRouter = require('./routes/api')
+const userRouter = require('./routes/user')
 const createDb = require('./db')
 const config = require('../app.config')
 
 const app = new Koa()
 const db = createDb(config.db.appId, config.db.appKey)
+
+app.keys = ['vue ssr tech']
+app.use(koaSession({
+  key: 'v-ssr-id',
+  maxAge: 2 * 60 * 60 * 1000
+}, app))
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -39,6 +49,8 @@ app.use(async (ctx, next) => {
   }
 })
 
+app.use(koaBody)
+app.use(userRouter.routes()).use(userRouter.allowedMethods())
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 
